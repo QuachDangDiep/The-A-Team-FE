@@ -3,7 +3,6 @@ import axios from "axios";
 import "./RegisterForm.css";
 import { Link } from "react-router-dom"; // Import Link từ react-router-dom để điều hướng
 
-
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -14,19 +13,12 @@ const RegisterForm = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-
   const API_URL = "http://localhost:5024/api/auth";
-
-
-
-  const API_URL = "http://localhost:5024/api/auth";
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate form fields
-
     if (
       !firstName ||
       !lastName ||
@@ -35,9 +27,6 @@ const RegisterForm = () => {
       !password ||
       !confirmPassword
     ) {
-
-    if (!firstName || !lastName || !dateOfBirth || !email || !password || !confirmPassword) {
-
       setError("All fields are required!");
       return;
     }
@@ -61,13 +50,9 @@ const RegisterForm = () => {
       setSuccess("Registration successful! You can now log in.");
       setError("");
     } catch (err) {
-
       setError(
         err.response?.data?.message || "Registration failed. Please try again."
       );
-
-      setError(err.response?.data?.message || "Registration failed. Please try again.");
-
       setSuccess("");
     }
   };
@@ -113,8 +98,7 @@ const RegisterForm = () => {
           <input
             type="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={email}onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
