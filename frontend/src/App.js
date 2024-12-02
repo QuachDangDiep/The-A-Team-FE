@@ -30,8 +30,12 @@ import User from "./Admin/ManageUser/ManageUser";
 import ForgotPassword from "./Client/ForgotPassword/ForgotPassword";
 
 import ResetPassword from "./Client/ResetPassword/ResetPassword";
+<<<<<<< Updated upstream
 import EnterCode from "./Client/EnterCode/EnterCode";
 import "./App.css";
+=======
+import "./App.css"; // Avoid duplicate import
+>>>>>>> Stashed changes
 
 function App() {
 
@@ -74,8 +78,11 @@ function App() {
           </Route>
 
           <Route path="/forgot-password" element={<ForgotPassword />} />
+<<<<<<< Updated upstream
 
           <Route path="/enter-code" element={<EnterCode />} />
+=======
+>>>>>>> Stashed changes
           <Route path="/reset-password" element={<ResetPassword />} />
 
           {/* Admin Routes */}

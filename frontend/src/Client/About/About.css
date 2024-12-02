@@ -63,3 +63,67 @@
   padding-right: 200px;
   text-align: left;
 }
+/* Màn hình iPad (max-width: 1023px) */
+@media (max-width: 1023px) {
+  .about-banner {
+    height: 250px; /* Giảm chiều cao banner */
+  }
+
+  .about-title {
+    font-size: 36px; /* Giảm kích thước chữ */
+    padding: 0 20px; /* Tạo khoảng cách padding để căn chỉnh */
+    text-align: center; /* Canh giữa chữ */
+  }
+
+  .about-content {
+    flex-direction: column; /* Xếp chồng nội dung */
+    padding: 20px; /* Giảm padding */
+  }
+
+  .about-content img {
+    padding: 10px;
+    width: 100%; /* Hình ảnh chiếm 50% chiều rộng container */
+    height: auto; /* Đảm bảo tỷ lệ hình ảnh */
+    margin: 0 auto 20px; /* Canh giữa và thêm khoảng cách */
+  }
+
+  .about-content p {
+    padding-left: 20px; /* Giảm padding */
+    padding-right: 20px;
+    font-size: 18px; /* Giảm kích thước chữ */
+  }
+}
+
+/* Màn hình điện thoại (max-width: 739px) */
+@media (max-width: 739px) {
+  .about-banner {
+    height: 200px; /* Giảm thêm chiều cao banner */
+  }
+
+  .about-title {
+    font-size: 28px; /* Giảm kích thước chữ */
+    text-align: center; /* Canh giữa */
+    padding: 0 10px;
+  }
+
+  .about-content {
+    flex-direction: column; /* Xếp chồng nội dung */
+    padding: 15px; /* Giảm padding */
+  }
+
+  .about-content img {
+    width: 100%; /* Hình ảnh chiếm 70% chiều rộng container */
+    height: auto; /* Đảm bảo tỷ lệ hình ảnh */
+    margin: 0 auto 15px; /* Canh giữa và thêm khoảng cách */
+  }
+
+  .about-content h2 {
+    font-size: 18px; /* Giảm kích thước chữ */
+  }
+
+  .about-content p {
+    padding: 10px; /* Giảm padding */
+    font-size: 16px; /* Giảm kích thước chữ */
+    text-align: justify; /* Canh đều nội dung */
+  }
+}

@@ -1,4 +1,33 @@
 /* Container chính */
+body {
+  margin: 0; /* Loại bỏ khoảng trống mặc định của trình duyệt */
+  padding: 0;
+  overflow-x: hidden; /* Ngăn tràn ngang màn hình */
+  width: 100%;
+  box-sizing: border-box; /* Đảm bảo padding và border không làm vượt kích thước */
+  font-family: Arial, sans-serif; /* Gợi ý thêm font mặc định */
+}
+
+/* Đảm bảo các phần tử không vượt quá màn hình */
+* {
+  box-sizing: border-box; /* Đảm bảo padding và border không làm vượt chiều rộng */
+}
+
+/* Đối với container chính */
+.container {
+  max-width: 100%; /* Không cho phép vượt chiều rộng màn hình */
+  overflow-x: hidden;
+}
+
+/* Đảm bảo nội dung bên trong cũng không vượt quá chiều rộng */
+.header-container,
+.logo-search-container,
+.navbar-header-link,
+.auth-cart-container {
+  max-width: 100%;
+}
+
+/* Đối với sản phẩm nổi bật */
 .featured-product {
   display: flex;
   justify-content: space-between;
@@ -31,13 +60,16 @@
   opacity: 1;
   transform: translateX(0); /* Trở về vị trí gốc */
 }
+
+/* Kích thước sản phẩm */
 .product-image-1 {
-  width: 100%;
-  height: 100%;
+  width: 125%;
+  height: 125%;
   padding-left: 200px;
   object-fit: cover;
   border-radius: 100px;
 }
+
 .featured-product h2 {
   padding-left: 300px;
   font-size: 36px;
@@ -79,10 +111,10 @@
 
 .manufacturer-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Divides into 3 equal columns */
-  gap: 20px; /* Space between columns */
+  grid-template-columns: repeat(3, 1fr); /* Chia thành 3 cột đều */
+  gap: 20px; /* Khoảng cách giữa các cột */
   width: 100%;
-  max-width: 1200px; /* Centers content with a max width */
+  max-width: 1200px; /* Căn giữa nội dung với max width */
 }
 
 .manufacturer {
@@ -90,12 +122,12 @@
 }
 
 .manufacturer-logo {
-  width: 200px; /* Set a fixed size for uniformity */
-  height: 200px; /* Set equal height to make it square */
-  object-fit: cover; /* Ensures image covers the circular area without distortion */
-  border-radius: 50%; /* Makes the image circular */
+  width: 200px; /* Đặt kích thước cố định cho hình ảnh */
+  height: 200px; /* Đặt chiều cao bằng chiều rộng để tạo hình vuông */
+  object-fit: cover; /* Đảm bảo hình ảnh bao phủ khu vực tròn mà không bị méo */
+  border-radius: 50%; /* Tạo hình tròn cho hình ảnh */
   display: block;
-  margin: 0 auto 10px; /* Centers the image and adds spacing below */
+  margin: 0 auto 10px; /* Căn giữa hình ảnh và thêm khoảng cách dưới */
 }
 
 .manufacturer p {
@@ -103,13 +135,79 @@
   color: #333;
   margin: 0;
 }
+/* Màn hình iPad (max-width: 1023px) */
+@media (max-width: 1023px) {
+  .featured-product {
+    flex-direction: column; /* Chuyển layout thành dạng cột */
+    padding: 20px;
+  }
 
-/* Phần footer và các phần còn lại */
-footer {
-  text-align: center;
-  padding: 30px;
-  background-color: #333;
-  color: white;
-  margin-top: 40px;
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  .product-image-1 {
+    width: 70%; /* Giảm kích thước ảnh */
+    height: auto;
+    padding-left: 0; /* Loại bỏ padding thừa */
+    margin-bottom: 20px; /* Thêm khoảng cách với nội dung */
+  }
+
+  .featured-product h2,
+  .featured-product h3,
+  .featured-product p {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center; /* Căn giữa nội dung */
+  }
+
+  .manufacturer-list {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* Hiển thị 3 sản phẩm trên mỗi dòng */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+  }
+
+  .manufacturer-logo {
+    width: 150px; /* Giảm kích thước logo */
+    height: 150px;
+  }
+}
+
+/* Màn hình điện thoại (max-width: 739px) */
+@media (max-width: 739px) {
+  .featured-product {
+    padding: 10px;
+  }
+
+  .product-image-1 {
+    width: 100%; /* Đảm bảo ảnh vừa màn hình */
+    height: auto;
+    padding-left: 0;
+    margin-bottom: 15px;
+  }
+
+  .featured-product h2 {
+    font-size: 24px; /* Giảm kích thước chữ */
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .featured-product h3 {
+    font-size: 20px;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .featured-product p {
+    font-size: 16px;
+    padding: 0 10px;
+    text-align: justify; /* Căn đều nội dung */
+  }
+
+  .manufacturer-list {
+    grid-template-columns: 1fr; /* Một cột trên màn hình nhỏ */
+  }
+
+  .manufacturer-logo {
+    width: 100px; /* Giảm kích thước logo */
+    height: 100px;
+  }
 }

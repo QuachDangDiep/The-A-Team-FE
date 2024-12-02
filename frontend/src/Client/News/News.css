@@ -83,3 +83,37 @@ h1 {
 .new-item .btn:hover {
   background-color: #f39c12;
 }
+
+@media (max-width: 1023px) {
+  .new-items {
+    gap: 15px;
+  }
+  .new-item {
+    width: 45%;
+  }
+  .new-item h2 {
+    font-size: 18px;
+  }
+  .new-item p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 739px) {
+  .new-items {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .new-item {
+    width: 100%;
+  }
+  .new-item h2 {
+    font-size: 16px;
+  }
+  .new-item p {
+    font-size: 14px;
+  }
+  .new-item .btn {
+    padding: 8px 16px;
+  }
+}

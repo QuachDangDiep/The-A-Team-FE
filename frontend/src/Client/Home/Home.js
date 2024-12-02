@@ -3,7 +3,7 @@ import "./Home.css";
 import Header from "../../Components/Header/Header";
 import Slider from "../../Components/Slider/Slider";
 import ProductList from "../../Components/ProductList/ProductList";
-// import Footer from "../../Components/Footer/Footer";
+import Footer from "../../Components/Footer/Footer";
 
 const Home = () => {
   const featuredProduct = {
@@ -132,8 +132,12 @@ const Home = () => {
           ))}
         </div>
       </section>
-      <ProductList title="All Products" products={allProducts} />
-      {/* <Footer /> */}
+      <ProductList
+        className="product-list"
+        title="All Products"
+        products={allProducts}
+      />
+      <Footer />
     </div>
   );
 };
