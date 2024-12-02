@@ -5,23 +5,75 @@ import "./ResetPassword.css";
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const location = useLocation();
-  const email = location.state?.email; // Lấy email từ state
+  const email = location.state?.email || "example@example.com";
 
-  const handleSubmit = (e) => {
+  const isPasswordValid = (password) => {
+    const minLength = 8;
+    const hasNumber = /\d/;
+    const hasUpperCase = /[A-Z]/;
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/;
+
+    if (password.length < minLength) {
+      return "Password must be at least 8 characters.";
+    }
+    if (!hasNumber.test(password)) {
+      return "Password must include at least one number.";
+    }
+    if (!hasUpperCase.test(password)) {
+      return "Password must include at least one uppercase letter.";
+    }
+    if (!hasSpecialChar.test(password)) {
+      return "Password must include at least one special character.";
+    }
+    return null;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+    setErrorMessage("");
+
+    // Kiểm tra mật khẩu
+    const passwordError = isPasswordValid(password);
+    if (passwordError) {
+      setErrorMessage(passwordError);
       return;
     }
-    console.log("Password reset successfully for:", email);
-    // Xử lý logic đổi mật khẩu ở đây
+
+    // Kiểm tra mật khẩu khớp
+    if (password !== confirmPassword) {
+      setErrorMessage("Passwords do not match!");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5024/api/auth/reset-password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        alert("Password reset successfully!");
+        // Thực hiện chuyển hướng sau khi thành công
+      } else {
+        const data = await response.json();
+        setErrorMessage(data.message || "An error occurred.");
+      }
+    } catch (error) {
+      setErrorMessage("Failed to reset password. Please try again later.");
+    }
   };
 
   return (
     <div className="form-container">
       <h2>Reset Password</h2>
+      <p>Reset password for: <strong>{email}</strong></p>
       <form onSubmit={handleSubmit} className="form">
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <div className="form-group">
           <label htmlFor="password">New Password</label>
           <input

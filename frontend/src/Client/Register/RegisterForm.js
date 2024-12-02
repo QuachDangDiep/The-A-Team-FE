@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./RegisterForm.css";
-import { Link } from "react-router-dom"; // Import Link từ react-router-dom để điều hướng
+import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -15,10 +15,40 @@ const RegisterForm = () => {
 
   const API_URL = "http://localhost:5024/api/auth";
 
+  // Kiểm tra email hợp lệ
+  const isEmailValid = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // Kiểm tra mật khẩu hợp lệ
+  const isPasswordValid = (password) => {
+    const minLength = 8;
+    const hasNumber = /\d/;
+    const hasUpperCase = /[A-Z]/;
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/;
+
+    if (password.length < minLength) {
+      return "Password must be at least 8 characters.";
+    }
+    if (!hasNumber.test(password)) {
+      return "Password must include at least one number.";
+    }
+    if (!hasUpperCase.test(password)) {
+      return "Password must include at least one uppercase letter.";
+    }
+    if (!hasSpecialChar.test(password)) {
+      return "Password must include at least one special character.";
+    }
+    return null;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    setSuccess("");
 
-    // Validate form fields
+    // Kiểm tra các trường bắt buộc
     if (
       !firstName ||
       !lastName ||
@@ -31,13 +61,27 @@ const RegisterForm = () => {
       return;
     }
 
+    // Kiểm tra email hợp lệ
+    if (!isEmailValid(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    // Kiểm tra mật khẩu hợp lệ
+    const passwordError = isPasswordValid(password);
+    if (passwordError) {
+      setError(passwordError);
+      return;
+    }
+
+    // Kiểm tra mật khẩu khớp
     if (password !== confirmPassword) {
       setError("Passwords do not match!");
       return;
     }
 
     try {
-      // Send registration data to the backend
+      // Gửi dữ liệu đăng ký lên backend
       const response = await axios.post(`${API_URL}/register`, {
         firstName,
         lastName,
@@ -46,7 +90,7 @@ const RegisterForm = () => {
         password,
       });
 
-      // If successful, clear the form and show a success message
+      // Nếu thành công, hiển thị thông báo thành công và reset form
       setSuccess("Registration successful! You can now log in.");
       setError("");
     } catch (err) {
@@ -98,7 +142,8 @@ const RegisterForm = () => {
           <input
             type="email"
             id="email"
-            value={email}onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
@@ -127,16 +172,13 @@ const RegisterForm = () => {
         </button>
       </form>
 
-      {/* Các liên kết điều hướng */}
       <div className="additional-links">
         <Link to="/" className="home-link">
           Back to Home
-        </Link>{" "}
-        {/* Link về trang chủ */}
+        </Link>
         <Link to="/login" className="login-link">
           Already have an account? Login
-        </Link>{" "}
-        {/* Link đến trang đăng nhập */}
+        </Link>
       </div>
     </div>
   );

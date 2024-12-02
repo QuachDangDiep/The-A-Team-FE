@@ -8,6 +8,7 @@
 }
 
 .contact-banner {
+  width: 100vw;
   position: relative;
   background-image: url("https://images.viblo.asia/86be5bf5-7905-4255-b54d-3aaf806cd0a8.png"); /* Thay đổi đường dẫn ảnh */
   background-size: cover;

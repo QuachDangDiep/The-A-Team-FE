@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Đặt URL cơ bản của API (Thay đổi nếu cần)
-const API_BASE_URL = "http://localhost:5000/api/customers";
+const API_BASE_URL = "http://localhost:5024/api/customers";
 
 // Tạo các hàm gọi API
 const CustomerService = {

@@ -21,7 +21,6 @@ import NewsAdmin from "./Admin/NewsAdmin/NewAdmin";
 import User from "./Admin/ManageUser/ManageUser";
 import ForgotPassword from "./Client/ForgotPassword/ForgotPassword";
 import ResetPassword from "./Client/ResetPassword/ResetPassword";
-import EnterCode from "./Client/EnterCode/EnterCode";
 import "./App.css"; // Avoid duplicate import
 
 function App() {
@@ -55,7 +54,7 @@ function App() {
           </Route>
 
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/enter-code" element={<EnterCode />} />
+          {/* <Route path="/enter-code" element={<EnterCode />} /> */}
           <Route path="/reset-password" element={<ResetPassword />} />
         </Routes>
       </BrowserRouter>

@@ -4,10 +4,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 40px;
+  padding-top: 55%;
   background-color: #f9f9f9;
   overflow: hidden; /* Đảm bảo phần tử ẩn khi chưa xuất hiện */
 }
-
 /* Nội dung và ảnh trước khi hiển thị */
 .product-info {
   opacity: 0;

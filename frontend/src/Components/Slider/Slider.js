@@ -1,32 +1,78 @@
-import React, { useState, useEffect } from "react";
-import "./Slider.css";
+import React from "react";
+import "./Slider.css"; // Đảm bảo bạn import file CSS ở đây
+import Header from "../Header/Header";
 
 const Slider = () => {
-  const images = [
-    "https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/07/anh-phong-canh-anime-3.jpg",
-    "https://i.pinimg.com/736x/6e/74/63/6e7463744c9fdf25c505adfd51902f50.jpg",
-    "https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/07/anh-phong-canh-anime-2.jpg",
-    "https://image.dienthoaivui.com.vn/x,webp,q90/https://dashboard.dienthoaivui.com.vn/uploads/dashboard/editor_upload/hinh-nen-anime-35.jpg",
-  ];
+  const sliderRef = React.useRef(null);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000); // Change image every 3 seconds
-    return () => clearInterval(interval);
-  }, [images.length]);
+  const activate = (e) => {
+    const items = sliderRef.current.querySelectorAll(".item");
+    if (e.target.classList.contains("next")) {
+      sliderRef.current.append(items[0]);
+    } else if (e.target.classList.contains("prev")) {
+      sliderRef.current.prepend(items[items.length - 1]);
+    }
+  };
 
   return (
-    <div className="slider">
-      <img
-        src={images[currentIndex]}
-        alt={`Slider Image ${currentIndex + 1}`}
-        className="slider-image"
-      />
+    <div className="slider-container">
+      <Header />
+      <ul className="slider" ref={sliderRef}>
+        {[
+          {
+            title: "Lossless Youths",
+            description: "Lorem ipsum dolor sit amet...",
+            image:
+              "https://cdn.mos.cms.futurecdn.net/dP3N4qnEZ4tCTCLq59iysd.jpg",
+          },
+          {
+            title: "Estrange Bond",
+            description: "Lorem ipsum dolor sit amet...",
+            image: "https://i.redd.it/tc0aqpv92pn21.jpg",
+          },
+          {
+            title: "The Gate Keeper",
+            description: "Lorem ipsum dolor sit amet...",
+            image: "https://wharferj.files.wordpress.com/2015/11/bio_north.jpg",
+          },
+          {
+            title: "Last Trace Of Us",
+            description: "Lorem ipsum dolor sit amet...",
+            image: "https://images7.alphacoders.com/878/878663.jpg",
+          },
+           {
+            title: "Urban Decay",
+            description: "Lorem ipsum dolor sit amet...",
+            image:
+              "https://theawesomer.com/photos/2017/07/simon_stalenhag_the_electric_state_6.jpg",
+          }, 
+           {
+            title: "The Migration",
+            description: "Lorem ipsum dolor sit amet...",
+            image: "https://da.se/app/uploads/2015/09/simon-december1994.jpg",
+          }, 
+        ].map((slide, index) => (
+          <li
+            className="item"
+            key={index}
+            style={{ backgroundImage: `url(${slide.image})` }}
+          >
+            <div className="content">
+              <h2 className="title">{slide.title}</h2>
+              <p className="description">{slide.description}</p>
+              <button>Read More</button>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <nav className="nav">
+        <button className="btn prev" onClick={activate}>
+          ❮
+        </button>
+        <button className="btn next" onClick={activate}>
+          ❯
+        </button>
+      </nav>
     </div>
   );
 };

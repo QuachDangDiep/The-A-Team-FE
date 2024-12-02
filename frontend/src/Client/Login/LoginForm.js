@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from "jwt-decode"; // Không cần destructure
 import AuthContext from "../../Context/AuthContext";
 import "./LoginForm.css";
 
@@ -8,63 +8,57 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const API_URL = "http://localhost:5024/api/auth";
 
-  const loginRequest = async (email, password) => {
-    try {
-      console.log("Sending login request...");
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
+  const loginRequest = async (email, password) => {
+    setLoading(true);
+    setError(null);
+
+    try {
       const response = await fetch(`${API_URL}/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
 
       if (!response.ok) {
-        throw new Error("Login failed. Please try again.");
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Login failed. Please try again.");
       }
 
       const data = await response.json();
-      console.log("Response data:", data);
-
       const { token } = data;
 
-      if (token) {
-        console.log("Received token:", token);
+      const decodedToken = jwtDecode(token);
+      const userRole = decodedToken.Role;
 
-        const decodedToken = jwtDecode(token);
-        console.log("Decoded token:", decodedToken);
+      localStorage.setItem("token", token);
+      localStorage.setItem("role", userRole);
 
-        localStorage.setItem("token", token);
-
-        const userRole = decodedToken.Role;
-        console.log("User role:", userRole);
-
-        localStorage.setItem("role", userRole);
-
-        login(token, userRole);
-
-        if (userRole === "Admin") {
-          navigate("/admin/dashboard");
-        } else {
-          navigate("/");
-        }
-      } else {
-        throw new Error("Invalid response from server");
-      }
+      login(token, userRole);
+      navigate(userRole === "Admin" ? "/admin/dashboard" : "/");
     } catch (err) {
-      console.error("Error during login:", err);
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!isValidEmail(email)) {
+      setError("Invalid email format.");
+      return;
+    }
     loginRequest(email, password);
   };
 
@@ -97,12 +91,10 @@ const LoginForm = () => {
           />
         </div>
         {error && <p className="error-message">{error}</p>}
-        <button type="submit" className="btn-submit">
-          Login
+        <button type="submit" className="btn-submit" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
         </button>
       </form>
-
-      {/* Additional Links */}
       <div className="additional-links">
         <Link to="/forgot-password" className="forgot-password-link">
           Forgot Password?

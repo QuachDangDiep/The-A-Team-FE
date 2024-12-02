@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import "./ForgotPassword.css";
 
 const ForgotAndResetPassword = () => {
@@ -10,18 +10,34 @@ const ForgotAndResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate(); // Hook để điều hướng
+  const navigate = useNavigate();
 
+  const isValidEmail = (email) => {
+    // Basic email validation regex
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return regex.test(email);
+  };
+
+  const isValidPassword = (password) => {
+    // Check for minimum length and at least one special character
+    const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*]).{6,}$/;
+    return regex.test(password);
+  };
 
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     setMessage("");
     setError("");
 
+    if (!isValidEmail(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
     try {
-      const response = await axios.post("/api/auth/forgot-password", { email });
+      const response = await axios.post("http://localhost:5024/api/auth/forgot-password", { email });
       setMessage(response.data);
-      setStep("reset"); // Move to reset password step after successful request
+      setStep("reset");
     } catch (err) {
       setError(err.response?.data || "An error occurred. Please try again.");
     }
@@ -32,19 +48,29 @@ const ForgotAndResetPassword = () => {
     setMessage("");
     setError("");
 
+    if (!token) {
+      setError("Please enter the reset token.");
+      return;
+    }
+
+    if (!isValidPassword(newPassword)) {
+      setError("Password must be at least 6 characters long, contain a letter, a number, and a special character.");
+      return;
+    }
+
     try {
-      const response = await axios.post("/api/auth/reset-password", {
+      const response = await axios.post("http://localhost:5024/api/auth/reset-password", {
         token,
         newPassword,
       });
       setMessage(response.data);
-      setStep("forgot"); // Optionally, reset to initial step after success
+      setStep("forgot");
     } catch (err) {
       setError(err.response?.data || "An error occurred. Please try again.");
     }
-    console.log("Password reset email sent to:", email);
-    // Sau khi xử lý gửi email thành công, điều hướng đến trang nhập mã xác minh
-    navigate("/enter-code", { state: { email } }); // Gửi email qua state
+
+    // Redirect to login page after successful password reset
+    navigate("/login", { state: { email } });
   };
 
   return (
