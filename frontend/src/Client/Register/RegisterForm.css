@@ -1,36 +1,46 @@
-/* Form.css */
-.form-container {
+/* LoginRegister.css */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh;  */
+  background-color: #f4f4f4; /* Màu nền nhẹ */
+  font-family: Arial, sans-serif;
+}
+
+.auth-container {
   width: 100%;
   max-width: 400px;
-  margin: 50px auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.auth-container h2 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 24px;
   color: #333;
 }
 
-.form {
+.auth-form {
   display: flex;
   flex-direction: column;
 }
 
-.form-group {
+.auth-group {
   margin-bottom: 15px;
 }
 
-.form-group label {
+.auth-group label {
   font-size: 14px;
   color: #333;
 }
 
-.form-group input {
+.auth-group input {
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -38,12 +48,12 @@ h2 {
   width: 100%;
 }
 
-.form-group input:focus {
+.auth-group input:focus {
   outline: none;
   border-color: #f39c12;
 }
 
-.btn-submit {
+.auth-submit-btn {
   padding: 10px;
   background-color: #f39c12;
   color: white;
@@ -54,19 +64,42 @@ h2 {
   transition: background-color 0.3s;
 }
 
-.btn-submit:hover {
+.auth-submit-btn:hover {
   background-color: #e67e22;
 }
 
-.error-message {
+.auth-error-message {
   color: red;
   font-size: 14px;
   margin-bottom: 10px;
   text-align: center;
 }
+<<<<<<< Updated upstream
+=======
+
+.auth-links {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-links a {
+  color: #f39c12;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.auth-links a:hover {
+  color: #e67e22;
+}
+>>>>>>> Stashed changes
 
 @media (max-width: 600px) {
-  .form-container {
+  .auth-container {
     width: 90%;
   }
 }

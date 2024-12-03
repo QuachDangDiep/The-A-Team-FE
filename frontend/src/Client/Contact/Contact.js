@@ -1,5 +1,10 @@
 import React, { useState } from "react"; // Đảm bảo import useState từ React
+<<<<<<< Updated upstream
 import Header from "../../Components/Header/Header";
+=======
+import Header from "../Header/Header";
+import Footer from "../../Components/Footer/Footer";
+>>>>>>> Stashed changes
 import "./Contact.css";
 
 const Contact = () => {

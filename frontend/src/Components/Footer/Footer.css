@@ -103,6 +103,7 @@ a:hover {
 
 /* Responsive Design */
 
+<<<<<<< Updated upstream
 /* iPad (max-width: 992px) */
 @media (max-width: 992px) {
     .footer-content {
@@ -162,4 +163,126 @@ a:hover {
     .footer-section {
         text-align: center;
     }
+=======
+
+/* @media (max-width: 992px) {
+
+  .footer-content {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .footer-section {
+    flex: 1 1 45%; 
+    margin: 10px 0;
+  }
+
+  .footer-section.subscribe {
+    flex: 1 1 90%; 
+  }
+} */
+
+/* @media (max-width: 740px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    flex: 1 1 100%; 
+  }
+
+  .subscribe-input {
+    width: 90%; 
+  }
+
+  .subscribe button {
+    width: 100%; 
+  }
+
+  .social-icons img {
+    width: 30px; 
+  }
+
+  .footer-bottom {
+    font-size: 12px; 
+  }
+} */
+
+/* Extra Small Devices (max-width: 576px) */
+/* @media (max-width: 576px) {
+  .subscribe-input {
+    width: 100%;
+  }
+
+  .subscribe button {
+    width: 100%;
+    margin-top: 10px; 
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+} */
+/* Mobile (max-width: 740px) */
+@media (max-width: 740px) {
+  .footer-content {
+    flex-direction: column; /* Sắp xếp các phần theo chiều dọc */
+    align-items: center; /* Căn giữa nội dung */
+  }
+
+  .footer-section {
+    flex: 1 1 100%; /* Chiếm toàn bộ chiều rộng */
+    text-align: center; /* Căn giữa văn bản */
+    margin-bottom: 20px; /* Thêm khoảng cách giữa các phần */
+  }
+
+  .subscribe-input {
+    width: 90%; /* Đầu vào full chiều rộng */
+    margin: 10px 0; /* Thêm khoảng cách dọc */
+    padding: 12px; /* Tăng kích thước padding cho dễ nhấn */
+    font-size: 14px; /* Kích thước chữ lớn hơn */
+  }
+
+  .subscribe button {
+    width: 90%; /* Nút full chiều rộng */
+    padding: 12px; /* Tăng kích thước padding */
+    font-size: 14px; /* Kích thước chữ lớn hơn */
+    margin: 10px 0; /* Thêm khoảng cách giữa input và button */
+  }
+
+  .social-icons img {
+    width: 32px; /* Tăng kích thước icon */
+    margin: 10px; /* Tăng khoảng cách giữa các icon */
+  }
+
+  .footer-bottom {
+    font-size: 12px; /* Kích thước chữ nhỏ hơn cho text cuối */
+    margin-top: 20px; /* Thêm khoảng cách phía trên */
+    line-height: 1.5; /* Tăng khoảng cách dòng */
+  }
+>>>>>>> Stashed changes
 }
+
+/* Extra Small Devices (max-width: 576px) */
+@media (max-width: 576px) {
+  .subscribe-input,
+  .subscribe button {
+    width: 100%; /* Full chiều rộng */
+  }
+
+  .footer-section {
+    text-align: center; /* Căn giữa mọi thứ */
+    margin-bottom: 15px; /* Thêm khoảng cách giữa các mục */
+  }
+
+  .social-icons img {
+    width: 36px; /* Tăng kích thước icon để dễ nhấn hơn */
+  }
+
+  .footer-bottom {
+    font-size: 10px; /* Giảm kích thước chữ thêm */
+    line-height: 1.4; /* Giảm khoảng cách dòng */
+  }
+}
+

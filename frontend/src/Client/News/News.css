@@ -6,6 +6,22 @@
   font-family: Arial, sans-serif;
 }
 
+<<<<<<< Updated upstream
+=======
+.new-about-banner {
+  position: relative;
+  background-image: url("https://images.viblo.asia/86be5bf5-7905-4255-b54d-3aaf806cd0a8.png");
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+>>>>>>> Stashed changes
 h1 {
   text-align: center;
   color: #333;
@@ -14,13 +30,23 @@ h1 {
 
 .new-items {
   display: flex;
+<<<<<<< Updated upstream
   flex-wrap: wrap;
+=======
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Đảm bảo tự động xuống hàng */
+>>>>>>> Stashed changes
   gap: 20px;
   justify-content: space-between;
 }
 
 .new-item {
+<<<<<<< Updated upstream
   width: 30%; /* Mỗi phần tử chiếm 30% chiều rộng */
+=======
+  width: 45%; /* Mặc định: 2 ảnh mỗi hàng */
+>>>>>>> Stashed changes
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -70,6 +96,7 @@ h1 {
 }
 
 .new-item .btn:hover {
+<<<<<<< Updated upstream
   background-color: #0056b3;
 }
 
@@ -77,5 +104,34 @@ h1 {
   .new-item {
     width: 100%; /* Trên màn hình nhỏ hơn, mỗi phần tử chiếm toàn bộ chiều rộng */
     margin-bottom: 20px;
+=======
+  background-color: #d35400;
+}
+
+/* Responsive Design */
+
+/* Màn hình Desktop: 2 hàng mỗi hàng 2 ảnh */
+@media (min-width: 768px) {
+  .new-item {
+    width: 45%; /* 2 ảnh mỗi hàng */
+  }
+}
+
+/* iPad: 2 hàng, mỗi hàng 2 ảnh (max-width: 1023px and min-width: 481px) */
+@media (max-width: 1023px) and (min-width: 481px) {
+  .new-item {
+    width: 45%; /* 2 cột */
+  }
+}
+
+/* Mobile: Mỗi ảnh trong một hàng (max-width: 740px) */
+@media (max-width: 740px) {
+  .new-item {
+    width: 100%; /* 1 cột cho mỗi ảnh */
+  }
+
+  .new-items {
+    gap: 15px; /* Giảm khoảng cách giữa các phần tử */
+>>>>>>> Stashed changes
   }
 }

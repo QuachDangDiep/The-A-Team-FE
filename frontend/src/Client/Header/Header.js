@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+<<<<<<< Updated upstream:frontend/src/Components/Header/Header.js
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+=======
+import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesome } from "fa-solid fa-bars";
+>>>>>>> Stashed changes:frontend/src/Client/Header/Header.js
 import "./Header.css";
+
 
 export const Header = () => {
   const [activeLink, setActiveLink] = useState(null);
@@ -78,6 +84,48 @@ export const Header = () => {
         </div>
       </div>
 
+<<<<<<< Updated upstream:frontend/src/Components/Header/Header.js
+=======
+      {/* Navigation Links */}
+      <div className="navbar-header-link">
+        <div
+          className={`navbar-header-home ${
+            activeLink === "home" ? "active" : ""
+          }`}
+          onClick={() => handleLinkClick("home")}
+        >
+          <Link to="/">Home</Link>
+        </div>
+        <div
+          className={`navbar-header-about ${
+            activeLink === "about" ? "active" : ""
+          }`}
+          onClick={() => handleLinkClick("about")}
+        >
+          <Link to="/about">About</Link>
+        </div>
+        <div
+          className={`navbar-header-contact ${
+            activeLink === "contact" ? "active" : ""
+          }`}
+          onClick={() => handleLinkClick("contact")}
+        >
+          <Link to="/contact">Contact</Link>
+        </div>
+        <div
+          className={`navbar-header-news ${
+            activeLink === "news" ? "active" : ""
+          }`}
+          onClick={() => handleLinkClick("news")}
+        >
+          <Link to="/news">News</Link>
+        </div>
+      </div> 
+       <div className="nav_bars_btn">
+  
+       </div>
+      {/* Auth and Cart */}
+>>>>>>> Stashed changes:frontend/src/Client/Header/Header.js
       <div className="navbar-header-container3">
         {/* Search Bar */}
 

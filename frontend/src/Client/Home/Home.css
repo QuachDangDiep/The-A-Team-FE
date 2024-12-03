@@ -1,6 +1,43 @@
+<<<<<<< Updated upstream
 .product-list {
   margin: 20px auto;
   padding: 10px;
+=======
+/* Container chính */
+
+body {
+  margin: 0; /* Loại bỏ khoảng trống mặc định của trình duyệt */
+  padding: 0;
+  overflow-x: hidden; /* Ngăn tràn ngang màn hình */
+  width: 100%;
+  box-sizing: border-box; /* Đảm bảo padding và border không làm vượt kích thước */
+  font-family: Arial, sans-serif; /* Gợi ý thêm font mặc định */
+}
+
+/* Đảm bảo các phần tử không vượt quá màn hình */
+* {
+  box-sizing: border-box; /* Đảm bảo padding và border không làm vượt chiều rộng */
+}
+
+/* Đối với container chính */
+.container {
+  max-width: 100%; /* Không cho phép vượt chiều rộng màn hình */
+  overflow-x: hidden;
+}
+
+/* Đảm bảo nội dung bên trong cũng không vượt quá chiều rộng */
+.header-container,
+.logo-search-container,
+.navbar-header-link,
+.auth-cart-container {
+  max-width: 100%;
+  /* overflow-x: hidden; */
+}.featured-product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+>>>>>>> Stashed changes
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -52,6 +89,22 @@
 
 .product-price {
   font-size: 16px;
+<<<<<<< Updated upstream
   color: #e74c3c;
   font-weight: bold;
 }
+=======
+  color: #333;
+  margin: 0;
+}
+
+/* Phần footer và các phần còn lại */
+/* footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #333;
+  color: white;
+  margin-top: 40px;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+} */
+>>>>>>> Stashed changes
