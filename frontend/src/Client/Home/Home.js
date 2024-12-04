@@ -97,6 +97,7 @@ const Home = () => {
     <div>
       <Header />
       <Slider />
+
       <section className="featured-product">
         <div className="product-image">
           <img
@@ -132,11 +133,15 @@ const Home = () => {
           ))}
         </div>
       </section>
+<<<<<<< Updated upstream
       <ProductList
         className="product-list"
         title="All Products"
         products={allProducts}
       />
+=======
+      <ProductList title="All Products" products={allProducts} />
+>>>>>>> Stashed changes
       <Footer />
     </div>
   );

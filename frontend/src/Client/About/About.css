@@ -63,6 +63,7 @@
   padding-right: 200px;
   text-align: left;
 }
+<<<<<<< Updated upstream
 /* Màn hình iPad (max-width: 1023px) */
 @media (max-width: 1023px) {
   .about-banner {
@@ -95,6 +96,8 @@
 }
 
 /* Màn hình điện thoại (max-width: 739px) */
+=======
+>>>>>>> Stashed changes
 @media (max-width: 739px) {
   .about-banner {
     height: 200px; /* Giảm thêm chiều cao banner */

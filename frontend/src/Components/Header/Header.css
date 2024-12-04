@@ -2,16 +2,32 @@
   display: flex;
   justify-content: space-between; /* Sắp xếp các phần cách đều */
   align-items: center;
+<<<<<<< Updated upstream
   /* width: 100%; */
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+=======
+  width: 93%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* background-color: #fff; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+>>>>>>> Stashed changes
   color: #333;
   font-family: Arial, sans-serif;
   padding-left: 48px;
   padding-right: 48px;
   padding-top: 30px;
   padding-bottom: 30px;
+<<<<<<< Updated upstream
 }
+=======
+  z-index: 100;
+  position: absolute;
+}
+
+>>>>>>> Stashed changes
 .logo-search-container {
   display: flex;
   align-items: center;

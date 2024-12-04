@@ -83,7 +83,10 @@ h1 {
 .new-item .btn:hover {
   background-color: #f39c12;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 @media (max-width: 1023px) {
   .new-items {
     gap: 15px;

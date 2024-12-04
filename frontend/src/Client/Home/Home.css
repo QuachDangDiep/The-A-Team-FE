@@ -94,7 +94,7 @@ body {
 
 /* Phần các nhà sản xuất nổi tiếng */
 .manufacturers {
-  width: 100%;
+  width: 97.3%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,7 +135,10 @@ body {
   color: #333;
   margin: 0;
 }
+<<<<<<< Updated upstream
 /* Màn hình iPad (max-width: 1023px) */
+=======
+>>>>>>> Stashed changes
 @media (max-width: 1023px) {
   .featured-product {
     flex-direction: column; /* Chuyển layout thành dạng cột */
