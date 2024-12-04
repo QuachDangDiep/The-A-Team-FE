@@ -2,23 +2,24 @@ import React, { useEffect } from "react";
 import "./Home.css";
 import Slider from "../../Components/Slider/Slider";
 import ProductList from "../../Components/ProductList/ProductList";
-// import Footer from "../../Components/Footer/Footer";
+import Sale from "./Sale/Sale";
+import Footer from "../../Components/Footer/Footer";
 
 const Home = () => {
-  const featuredProduct = {
-    name: "Product 1",
-    price: 99,
-    description: `
-      This is a detailed description of a featured product that stands out. 
-      It's amazing because it solves many problems and looks great. 
-      Featured products will have images parallel to the product information, 
-      creating a neat and easy-to-read feel. Famous manufacturers will display 
-      in a grid with space between logos. The footer will be centered and 
-      have a dark background color to highlight the bottom of the page.
-    `,
-    image:
-      "https://file.hstatic.net/200000201143/file/chup-anh-san-pham-voi-nen-trang_a77c2502a0d744b398322e958f05f915_grande.jpg",
-  };
+  // const featuredProduct = {
+  //   name: "Product 1",
+  //   price: 99,
+  //   description: `
+  //     This is a detailed description of a featured product that stands out. 
+  //     It's amazing because it solves many problems and looks great. 
+  //     Featured products will have images parallel to the product information, 
+  //     creating a neat and easy-to-read feel. Famous manufacturers will display 
+  //     in a grid with space between logos. The footer will be centered and 
+  //     have a dark background color to highlight the bottom of the page.
+  //   `,
+  //   image:
+  //     "https://file.hstatic.net/200000201143/file/chup-anh-san-pham-voi-nen-trang_a77c2502a0d744b398322e958f05f915_grande.jpg",
+  // };
 
   useEffect(() => {
     const target = document.querySelector(".featured-product");
@@ -94,9 +95,10 @@ const Home = () => {
 
   return (
     <div>
-      <Slider />
+    <Slider />
       <section className="featured-product">
-        <div className="product-image">
+      <Sale />
+        {/* <div className="product-image">
           <img
             className="product-image-1"
             alt={featuredProduct.name}
@@ -108,7 +110,7 @@ const Home = () => {
 
           <h3>{featuredProduct.name}</h3>
           <p>{featuredProduct.description}</p>
-        </div>
+        </div> */}
       </section>
       <section className="manufacturers">
         <h2>Famous Manufacturers</h2>
@@ -131,7 +133,7 @@ const Home = () => {
         </div>
       </section>
       <ProductList title="All Products" products={allProducts} />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

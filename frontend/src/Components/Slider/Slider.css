@@ -1,12 +1,12 @@
-* {
+.slider-container {
   margin: 0;
   /* width: 100vw; */
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  height: 50vh;
+.slider-container body {
+  height: 55vh;
   display: grid;
   place-items: center;
   overflow:auto;
@@ -20,6 +20,7 @@ main {
 }
 
 .item {
+  margin: 0;
   width: 200px;
   height: 300px;
   list-style-type: none;
