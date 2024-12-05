@@ -12,7 +12,7 @@ const LoginForm = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const API_URL = "http://localhost:5024/api/auth";
+  const API_URL = "https://shopy-emahgphwbhgpd3bs.japanwest-01.azurewebsites.net/api/auth/login";
 
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

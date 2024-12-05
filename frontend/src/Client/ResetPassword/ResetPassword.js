@@ -48,7 +48,7 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5024/api/auth/reset-password", {
+      const response = await fetch("https://shopy-emahgphwbhgpd3bs.japanwest-01.azurewebsites.net/api/auth/reset-password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

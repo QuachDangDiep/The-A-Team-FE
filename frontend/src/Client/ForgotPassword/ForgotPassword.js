@@ -35,7 +35,7 @@ const ForgotAndResetPassword = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5024/api/auth/forgot-password", { email });
+      const response = await axios.post("https://shopy-emahgphwbhgpd3bs.japanwest-01.azurewebsites.net/api/auth/forgot-password", { email });
       setMessage(response.data);
       setStep("reset");
     } catch (err) {
@@ -59,7 +59,7 @@ const ForgotAndResetPassword = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5024/api/auth/reset-password", {
+      const response = await axios.post("https://shopy-emahgphwbhgpd3bs.japanwest-01.azurewebsites.net/api/auth/reset-password", {
         token,
         newPassword,
       });
