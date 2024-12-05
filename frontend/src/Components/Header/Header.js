@@ -29,17 +29,6 @@ export const Header = () => {
         <div className="logo-header">
           <h1>MyLogo</h1>
         </div>
-
-        {/* Search Bar */}
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <button onClick={handleSearch}>Search</button>
-        </div>
       </div>
 
       {/* Navigation Links */}

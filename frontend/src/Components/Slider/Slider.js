@@ -23,34 +23,38 @@ const Slider = () => {
             title: "Lossless Youths",
             description: "Lorem ipsum dolor sit amet...",
             image:
-              "https://cdn.mos.cms.futurecdn.net/dP3N4qnEZ4tCTCLq59iysd.jpg",
+              "https://mediawinwin.vn/upload/images/sanpham/bao-gia-chup-mon-an-dich-vu-chup-anh-do-an-chuyen-nghiep-3.JPG",
           },
           {
             title: "Estrange Bond",
             description: "Lorem ipsum dolor sit amet...",
-            image: "https://i.redd.it/tc0aqpv92pn21.jpg",
+            image:
+              "https://png.pngtree.com/thumb_back/fw800/background/20231221/pngtree-gourmet-daytime-seafood-hodgepodge-indoor-food-photography-with-illustrations-photo-image_15540722.png",
           },
           {
             title: "The Gate Keeper",
             description: "Lorem ipsum dolor sit amet...",
-            image: "https://wharferj.files.wordpress.com/2015/11/bio_north.jpg",
+            image:
+              "https://cdn.popsww.com/blog-kids/sites/3/2022/12/mon-an-dac-trung-ngay-tet.jpg",
           },
           {
             title: "Last Trace Of Us",
             description: "Lorem ipsum dolor sit amet...",
-            image: "https://images7.alphacoders.com/878/878663.jpg",
+            image:
+              "https://marketingbox.vn/wp-content/uploads/2024/08/loi-ich-chup-anh-mon-an-han.webp",
           },
-           {
+          {
             title: "Urban Decay",
             description: "Lorem ipsum dolor sit amet...",
             image:
-              "https://theawesomer.com/photos/2017/07/simon_stalenhag_the_electric_state_6.jpg",
-          }, 
-           {
+              "https://mediawinwin.vn/upload/images/sanpham/bao-gia-chup-mon-an-dich-vu-chup-anh-do-an-chuyen-nghiep-5.JPG",
+          },
+          {
             title: "The Migration",
             description: "Lorem ipsum dolor sit amet...",
-            image: "https://da.se/app/uploads/2015/09/simon-december1994.jpg",
-          }, 
+            image:
+              "https://statics.vincom.com.vn/xu-huong/chi_tiet_xu_huong/mon-an-han-quoc/gimpapne-1200x676.jpeg",
+          },
         ].map((slide, index) => (
           <li
             className="item"
