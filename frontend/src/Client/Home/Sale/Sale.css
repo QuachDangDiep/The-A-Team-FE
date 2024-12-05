@@ -1,12 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
-
-/* .Sale {
+.Sale {
   height: 100vh;
   margin: 0;
   overflow: hidden;
-  background: linear-gradient(0deg, #0d0c03, #222222);
   font-family: "Rubik Mono One", sans-serif;
-} */
+}
 
 .Sale h2 {
   padding-left: 0px;
@@ -34,7 +31,6 @@ h2 span {
   user-select: none;
   text-align: center;
   white-space: nowrap;
-  overflow: hidden;
 }
 
 .item-list {
@@ -43,27 +39,35 @@ h2 span {
   position: relative;
   background-image: var(--url);
   background-position: center;
-  background-size: 75vh;
+  background-size: cover;
   margin: 1vw;
   border-radius: 3vw;
   display: inline-block;
   cursor: pointer;
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
+  transition: width 0.8s ease, transform 0.8s ease;
+  overflow: hidden; /* Ensure any overflowing content is clipped */
+}
+
+/* Scale the item on hover */
+.item-list:hover {
+  transform: scale(1.05);
 }
 
 .overlay {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 3vw;
   position: absolute;
-  height: 50vh;
+  height: 100%;
   width: 100%;
-  opacity: auto;
+  opacity: 0;
+  transition: opacity 0.8s ease;
 }
 
 .menu {
   position: absolute;
   left: 50%;
-  bottom: 0px;
+  bottom: 0;
   width: 100%;
   padding-top: 20vh;
   padding-bottom: 10vh;
@@ -71,14 +75,12 @@ h2 span {
   transform: translateX(-50%);
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0));
   opacity: 0;
+  transition: opacity 0.8s ease;
 }
 
 .menu label {
   color: #cfd9db;
-  display: block;
   font-size: 20px;
-  letter-spacing: -2px;
-  word-spacing: -10px;
-  overflow-x: hidden;
   text-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
+  padding: 0 10px;
 }

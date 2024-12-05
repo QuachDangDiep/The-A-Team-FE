@@ -10,11 +10,11 @@ const Home = () => {
   //   name: "Product 1",
   //   price: 99,
   //   description: `
-  //     This is a detailed description of a featured product that stands out. 
-  //     It's amazing because it solves many problems and looks great. 
-  //     Featured products will have images parallel to the product information, 
-  //     creating a neat and easy-to-read feel. Famous manufacturers will display 
-  //     in a grid with space between logos. The footer will be centered and 
+  //     This is a detailed description of a featured product that stands out.
+  //     It's amazing because it solves many problems and looks great.
+  //     Featured products will have images parallel to the product information,
+  //     creating a neat and easy-to-read feel. Famous manufacturers will display
+  //     in a grid with space between logos. The footer will be centered and
   //     have a dark background color to highlight the bottom of the page.
   //   `,
   //   image:
@@ -95,9 +95,9 @@ const Home = () => {
 
   return (
     <div>
-    <Slider />
+      <Slider />
       <section className="featured-product">
-      <Sale />
+        <Sale />
         {/* <div className="product-image">
           <img
             className="product-image-1"
