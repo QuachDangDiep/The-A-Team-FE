@@ -1,0 +1,119 @@
+.product-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 38px;
+  line-height: 55px;
+  display: block;
+  text-transform: uppercase;
+  font-family: "SVN-Blenda Script";
+  background: linear-gradient(360deg, #f56e34 23.33%, #f58634 120%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  color: #ff6600;
+  margin-bottom: 20px;
+}
+.img-title {
+  padding-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tab-button.active {
+  background-color: #ff6600;
+  color: white;
+  border-color: #ff6600;
+}
+.tab-button:hover {
+  background-color: #ff6600;
+  color: white;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 sản phẩm trên mỗi hàng */
+  gap: 20px;
+  padding-left: 110px;
+  padding-right: 110px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.product-image {
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.product-name {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff0000;
+}
+.load-more-container {
+  margin: 20px 0;
+  border: 2px solid #ff6600;
+  margin-left: 625px;
+  margin-right: 657px;
+  border-radius: 100px;
+  text-align: center;
+}
+
+.load-more-button {
+  padding: 10px 46px;
+  font-size: 16px;
+  background-color: white;
+  color: #ff6600;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center; /* Canh giữa chữ và mũi tên */
+}
+
+.load-more-button:hover {
+  background-color: #ff6600;
+  color: white;
+}
+
+.load-more-button::after {
+  content: "→"; /* Sử dụng biểu tượng mũi tên */
+  font-size: 16px;
+  margin-left: 3px; /* Tạo khoảng cách giữa chữ và mũi tên */
+  transition: transform 0.2s;
+}
+
+/* Hiệu ứng hover cho mũi tên */
+.load-more-button:hover::after {
+  transform: translateX(5px); /* Dịch chuyển mũi tên khi hover */
+}

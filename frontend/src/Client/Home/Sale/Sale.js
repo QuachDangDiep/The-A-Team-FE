@@ -102,8 +102,7 @@ const Sale = () => {
 
   return (
     <div className="Sale">
-      <h2>
-        Helloresto <br />
+      <h2 className="sale-h2">
         <span>menulist</span>
       </h2>
 

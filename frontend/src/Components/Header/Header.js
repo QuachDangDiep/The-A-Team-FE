@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -8,6 +8,7 @@ export const Header = () => {
   const [activeLink, setActiveLink] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Đăng nhập
+  const [isScrolled, setIsScrolled] = useState(false); // Trạng thái cuộn
   const navigate = useNavigate(); // Điều hướng
 
   const handleLinkClick = (link) => {
@@ -22,8 +23,25 @@ export const Header = () => {
     navigate("/login");
   };
 
+  // Kiểm tra khi cuộn trang
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setIsScrolled(true); // Nếu cuộn quá 50px thì thêm lớp scrolled
+    } else {
+      setIsScrolled(false); // Nếu cuộn lên trên, loại bỏ lớp scrolled
+    }
+  };
+
+  // Lắng nghe sự kiện cuộn khi component được mount
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="header-container">
+    <div className={`header-container ${isScrolled ? "scrolled" : ""}`}>
       {/* Logo */}
       <div className="logo-search-container">
         <div className="logo-header">

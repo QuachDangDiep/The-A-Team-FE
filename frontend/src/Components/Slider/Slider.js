@@ -35,7 +35,7 @@ const Slider = () => {
             title: "The Gate Keeper",
             description: "Lorem ipsum dolor sit amet...",
             image:
-              "https://cdn.popsww.com/blog-kids/sites/3/2022/12/mon-an-dac-trung-ngay-tet.jpg",
+              "https://thucphamsach9.giaodienwebmau.com/wp-content/uploads/2024/04/home-slider.png",
           },
           {
             title: "Last Trace Of Us",

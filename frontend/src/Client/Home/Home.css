@@ -15,12 +15,6 @@
   transition: all 0.7s ease-out;
 }
 
-.product-image {
-  opacity: 0;
-  transform: translateX(-100%); /* Ảnh trượt từ bên trái */
-  transition: all 0.7s ease-out;
-}
-
 /* Khi hiển thị */
 .featured-product.active .product-info {
   opacity: 1;

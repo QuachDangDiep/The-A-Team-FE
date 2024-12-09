@@ -1,7 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {jwtDecode} from "jwt-decode"; // Không cần destructure
+import { jwtDecode } from "jwt-decode"; // Sử dụng named import
+
 import AuthContext from "../../Context/AuthContext";
+import LoginWithGoogle from "./LoginWithGoogle/LoginWithGoogle";
 import "./LoginForm.css";
 
 const LoginForm = () => {
@@ -12,7 +14,8 @@ const LoginForm = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const API_URL = "https://shopy-emahgphwbhgpd3bs.japanwest-01.azurewebsites.net/api/auth/login";
+  const API_URL =
+    "https://shopy-emahgphwbhgpd3bs.japanwest-01.azurewebsites.net/api/auth";
 
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -50,6 +53,35 @@ const LoginForm = () => {
       setError(err.message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleGoogleLoginSuccess = async (idToken) => {
+    try {
+      const response = await fetch(`${API_URL}/google`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ IdToken: idToken }), // Đảm bảo gửi đúng tên trường "IdToken"
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Google login failed.");
+      }
+
+      const data = await response.json();
+      const { Token: token } = data;
+
+      const decodedToken = jwtDecode(token);
+      const userRole = decodedToken.Role;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("role", userRole);
+
+      login(token, userRole);
+      navigate(userRole === "Admin" ? "/admin/dashboard" : "/");
+    } catch (error) {
+      setError(error.message);
     }
   };
 
@@ -106,6 +138,7 @@ const LoginForm = () => {
           Back to Home
         </Link>
       </div>
+      <LoginWithGoogle onLoginSuccess={handleGoogleLoginSuccess} />
     </div>
   );
 };

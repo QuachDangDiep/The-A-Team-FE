@@ -1,0 +1,119 @@
+.Reason {
+  font-family: Arial, sans-serif;
+  background-color: white; /* Optional background color for distinction */
+  padding: 20px;
+}
+
+.Reason-img {
+  width: 83%;
+  margin-left: 123px;
+  /* margin-right: 154px; */
+  height: auto;
+  display: block;
+  margin-bottom: -65px;
+}
+.text-h2 {
+  color: #ff6600;
+}
+
+.content-why {
+  padding: 46px;
+}
+
+.attachment-original {
+  margin-top: -28px;
+}
+
+.section {
+  padding: 1px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row-large {
+  display: flex;
+  justify-content: space-between; /* Ensure even spacing between columns */
+  flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+  gap: 104px; /* Add space between columns */
+  width: 100%; /* Take full width of the parent container */
+  max-width: 1200px; /* Optional: Limit the total width for better layout */
+}
+
+.col {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: calc(33.33% - 20px);
+  max-width: calc(53.33% - 20px); /* Adjusted for three columns per row */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.col-inner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; /* Center align content inside the column */
+}
+
+.icon-box {
+  margin-bottom: 20px;
+  margin-left: -66px;
+  margin-right: 10px;
+}
+
+.icon-box-img {
+  margin-bottom: 15px;
+}
+
+.icon-box-img img {
+  width: 72px;
+  height: 72px;
+}
+.text-p {
+  color: #333;
+}
+
+.icon-box-h3 {
+  font-size: 18px;
+  color: #ff6600;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.icon-box-p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6; /* Improve readability */
+  margin: 0 auto;
+  text-align: center;
+  max-width: 90%; /* Optional: Limit text width */
+}
+
+.gap-element {
+  height: 40px;
+}
+
+/* Responsive: Medium screens */
+@media (max-width: 1024px) {
+  .col {
+    flex: 1 1 calc(50% - 20px); /* Two columns per row on medium screens */
+    max-width: calc(50% - 20px);
+  }
+}
+
+/* Responsive: Small screens */
+@media (max-width: 768px) {
+  .row-large {
+    flex-direction: column; /* Stack columns vertically on smaller screens */
+  }
+
+  .col {
+    flex: 1 1 100%; /* Each column takes full width */
+    max-width: 100%;
+  }
+}

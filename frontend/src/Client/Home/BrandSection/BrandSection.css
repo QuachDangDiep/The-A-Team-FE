@@ -1,0 +1,109 @@
+/* Tổng thể section */
+.brand-section {
+  position: relative; /* Đặt phần brand-section ở vị trí relative */
+  background-color: white;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  z-index: 1; /* Đảm bảo phần .brand-section có z-index thấp */
+}
+
+/* Hình nền */
+.brand-background {
+  position: absolute; /* Đặt hình nền ở vị trí tuyệt đối */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; /* Đảm bảo hình nền nằm dưới phần nội dung */
+}
+
+.brand-background .bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Nội dung chính */
+.section-content {
+  display: flex;
+  justify-content: space-between; /* Chia đều không gian giữa các phần tử */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  position: relative; /* Đảm bảo các phần tử con có thể đè lên phần .brand-background */
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 15px;
+  margin-top: 163px;
+  z-index: 2; /* Đảm bảo phần nội dung nằm trên hình nền */
+}
+
+/* Nội dung văn bản */
+.content-text {
+  max-width: 50%;
+  text-align: left;
+  padding-right: 30px; /* Tạo khoảng cách giữa text và ảnh */
+}
+
+.title-1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.title-1-img {
+  color: white;
+  padding-left: 284px;
+}
+
+.content-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: white;
+}
+
+/* Phần logo */
+.content-logos {
+  max-width: 50%;
+}
+
+.content-logos .logos-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Hiệu ứng logo động */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Đảm bảo rằng phần logo và nội dung không tràn ra ngoài */
+@media (max-width: 768px) {
+  .section-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .content-text,
+  .content-logos {
+    max-width: 100%;
+  }
+
+  .content-text p {
+    font-size: 16px;
+  }
+}
